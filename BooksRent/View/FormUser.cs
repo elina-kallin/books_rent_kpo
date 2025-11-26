@@ -35,7 +35,7 @@ namespace AppUsersLab1.Forms
         private void FormUser_Load(object sender, EventArgs e)
         {
             var currentUser = _usersStorage.GetById(CurrentUserID);
-            labelProgram.Text = $"Привет, {currentUser.Name}!\nСовсем скоро тут появится программа :D";
+            statusStripHelloUser.Text = $"Здравствуй, {currentUser.Name}!";
         }
     }
 }

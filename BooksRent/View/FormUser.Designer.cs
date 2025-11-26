@@ -30,13 +30,11 @@
         {
             components = new System.ComponentModel.Container();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            menuStrip1 = new MenuStrip();
-            оПрограммеToolStripMenuItem = new ToolStripMenuItem();
-            справкаToolStripMenuItem = new ToolStripMenuItem();
-            сменитьПарольToolStripMenuItem = new ToolStripMenuItem();
             statusStripHelloUser = new StatusStrip();
-            labelProgram = new Label();
-            menuStrip1.SuspendLayout();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            tabPage2 = new TabPage();
+            tabControl1.SuspendLayout();
             SuspendLayout();
             // 
             // contextMenuStrip1
@@ -44,37 +42,6 @@
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { оПрограммеToolStripMenuItem, сменитьПарольToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 28);
-            menuStrip1.TabIndex = 1;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // оПрограммеToolStripMenuItem
-            // 
-            оПрограммеToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { справкаToolStripMenuItem });
-            оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            оПрограммеToolStripMenuItem.Size = new Size(118, 24);
-            оПрограммеToolStripMenuItem.Text = "О программе";
-            оПрограммеToolStripMenuItem.Click += оПрограммеToolStripMenuItem_Click;
-            // 
-            // справкаToolStripMenuItem
-            // 
-            справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            справкаToolStripMenuItem.Size = new Size(150, 26);
-            справкаToolStripMenuItem.Text = "Справка";
-            // 
-            // сменитьПарольToolStripMenuItem
-            // 
-            сменитьПарольToolStripMenuItem.Name = "сменитьПарольToolStripMenuItem";
-            сменитьПарольToolStripMenuItem.Size = new Size(138, 24);
-            сменитьПарольToolStripMenuItem.Text = "Сменить пароль";
-            сменитьПарольToolStripMenuItem.Click += сменитьПарольToolStripMenuItem_Click;
             // 
             // statusStripHelloUser
             // 
@@ -85,29 +52,48 @@
             statusStripHelloUser.TabIndex = 2;
             statusStripHelloUser.Text = "statusStrip1";
             // 
-            // labelProgram
+            // tabControl1
             // 
-            labelProgram.AutoSize = true;
-            labelProgram.Location = new Point(373, 203);
-            labelProgram.Name = "labelProgram";
-            labelProgram.Size = new Size(50, 20);
-            labelProgram.TabIndex = 3;
-            labelProgram.Text = "label1";
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Location = new Point(0, 0);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(800, 428);
+            tabControl1.TabIndex = 3;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(792, 395);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Книги";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(792, 395);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Арендные чеки";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // FormUser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(labelProgram);
+            Controls.Add(tabControl1);
             Controls.Add(statusStripHelloUser);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
             Name = "FormUser";
             Text = "Пользователь";
             Load += FormUser_Load;
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            tabControl1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -115,11 +101,9 @@
         #endregion
 
         private ContextMenuStrip contextMenuStrip1;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem оПрограммеToolStripMenuItem;
-        private ToolStripMenuItem справкаToolStripMenuItem;
-        private ToolStripMenuItem сменитьПарольToolStripMenuItem;
         private StatusStrip statusStripHelloUser;
-        private Label labelProgram;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
     }
 }

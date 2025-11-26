@@ -133,20 +133,5 @@ namespace AppUsersLab1
                 formUser.ShowDialog();
             }
         }
-
-        private void tabControl_Selected(object sender, TabControlEventArgs e)
-        {
-            // users
-            if(e.TabPageIndex == 2)
-            {
-                Form formChangePassword = new FormChangePassword(_usersStorage.GetById(CurrentUserID));
-                Close();
-                if (formChangePassword.ShowDialog() == DialogResult.OK)
-                {
-                    Form formUser = new FormUser(CurrentUserID);
-                    formUser.ShowDialog();
-                }
-            }
-        }
     }
 }

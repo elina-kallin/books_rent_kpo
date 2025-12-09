@@ -31,8 +31,8 @@
             statusStrip1 = new StatusStrip();
             helloUsernameLabel = new ToolStripStatusLabel();
             tabPage2 = new TabPage();
-            dataGridViewBooks = new DataGridView();
-            textBox1 = new TextBox();
+            dataGridViewBooksAdmin = new DataGridView();
+            textBoxSearchBooksAdmin = new TextBox();
             labelSearch = new Label();
             menuStrip2 = new MenuStrip();
             создатьКнигуToolStripMenuItem = new ToolStripMenuItem();
@@ -40,7 +40,7 @@
             удалитьКнигуToolStripMenuItem = new ToolStripMenuItem();
             фильтрToolStripMenuItem = new ToolStripMenuItem();
             tabPage1 = new TabPage();
-            dataGridViewUsers = new DataGridView();
+            dataGridViewUsersAdmin = new DataGridView();
             menuStrip1 = new MenuStrip();
             добавитьПользователяToolStripMenuItem = new ToolStripMenuItem();
             редактироватьПользователяToolStripMenuItem = new ToolStripMenuItem();
@@ -48,21 +48,21 @@
             сменитьПарольToolStripMenuItem = new ToolStripMenuItem();
             tabControl = new TabControl();
             tabPage3 = new TabPage();
-            textBox2 = new TextBox();
+            textBoxSearchRentsAdmin = new TextBox();
             label1 = new Label();
-            dataGridView = new DataGridView();
+            dataGridViewRentsAdmin = new DataGridView();
             menuStrip3 = new MenuStrip();
             фильтрToolStripMenuItem1 = new ToolStripMenuItem();
             statusStrip1.SuspendLayout();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBooksAdmin).BeginInit();
             menuStrip2.SuspendLayout();
             tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewUsersAdmin).BeginInit();
             menuStrip1.SuspendLayout();
             tabControl.SuspendLayout();
             tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewRentsAdmin).BeginInit();
             menuStrip3.SuspendLayout();
             SuspendLayout();
             // 
@@ -84,8 +84,8 @@
             // tabPage2
             // 
             tabPage2.BackColor = Color.AntiqueWhite;
-            tabPage2.Controls.Add(dataGridViewBooks);
-            tabPage2.Controls.Add(textBox1);
+            tabPage2.Controls.Add(dataGridViewBooksAdmin);
+            tabPage2.Controls.Add(textBoxSearchBooksAdmin);
             tabPage2.Controls.Add(labelSearch);
             tabPage2.Controls.Add(menuStrip2);
             tabPage2.Location = new Point(4, 29);
@@ -95,24 +95,24 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Книги";
             // 
-            // dataGridViewBooks
+            // dataGridViewBooksAdmin
             // 
-            dataGridViewBooks.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewBooks.BackgroundColor = Color.Bisque;
-            dataGridViewBooks.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewBooks.Location = new Point(3, 86);
-            dataGridViewBooks.Name = "dataGridViewBooks";
-            dataGridViewBooks.RowHeadersWidth = 51;
-            dataGridViewBooks.Size = new Size(1161, 445);
-            dataGridViewBooks.TabIndex = 3;
+            dataGridViewBooksAdmin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewBooksAdmin.BackgroundColor = Color.Bisque;
+            dataGridViewBooksAdmin.BorderStyle = BorderStyle.Fixed3D;
+            dataGridViewBooksAdmin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewBooksAdmin.Location = new Point(3, 86);
+            dataGridViewBooksAdmin.Name = "dataGridViewBooksAdmin";
+            dataGridViewBooksAdmin.RowHeadersWidth = 51;
+            dataGridViewBooksAdmin.Size = new Size(1161, 445);
+            dataGridViewBooksAdmin.TabIndex = 3;
             // 
-            // textBox1
+            // textBoxSearchBooksAdmin
             // 
-            textBox1.Location = new Point(66, 36);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(175, 27);
-            textBox1.TabIndex = 2;
+            textBoxSearchBooksAdmin.Location = new Point(66, 36);
+            textBoxSearchBooksAdmin.Name = "textBoxSearchBooksAdmin";
+            textBoxSearchBooksAdmin.Size = new Size(175, 27);
+            textBoxSearchBooksAdmin.TabIndex = 2;
             // 
             // labelSearch
             // 
@@ -159,7 +159,7 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(dataGridViewUsers);
+            tabPage1.Controls.Add(dataGridViewUsersAdmin);
             tabPage1.Controls.Add(menuStrip1);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
@@ -169,28 +169,28 @@
             tabPage1.Text = "Пользователи";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewUsers
+            // dataGridViewUsersAdmin
             // 
-            dataGridViewUsers.AllowUserToAddRows = false;
-            dataGridViewUsers.AllowUserToDeleteRows = false;
-            dataGridViewUsers.AllowUserToOrderColumns = true;
-            dataGridViewUsers.AllowUserToResizeColumns = false;
-            dataGridViewUsers.AllowUserToResizeRows = false;
-            dataGridViewUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewUsers.BackgroundColor = Color.AntiqueWhite;
-            dataGridViewUsers.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewUsers.Dock = DockStyle.Fill;
-            dataGridViewUsers.EditMode = DataGridViewEditMode.EditOnEnter;
-            dataGridViewUsers.GridColor = SystemColors.InfoText;
-            dataGridViewUsers.Location = new Point(3, 31);
-            dataGridViewUsers.Name = "dataGridViewUsers";
-            dataGridViewUsers.ReadOnly = true;
-            dataGridViewUsers.RowHeadersVisible = false;
-            dataGridViewUsers.RowHeadersWidth = 51;
-            dataGridViewUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewUsers.Size = new Size(1161, 500);
-            dataGridViewUsers.TabIndex = 3;
+            dataGridViewUsersAdmin.AllowUserToAddRows = false;
+            dataGridViewUsersAdmin.AllowUserToDeleteRows = false;
+            dataGridViewUsersAdmin.AllowUserToOrderColumns = true;
+            dataGridViewUsersAdmin.AllowUserToResizeColumns = false;
+            dataGridViewUsersAdmin.AllowUserToResizeRows = false;
+            dataGridViewUsersAdmin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewUsersAdmin.BackgroundColor = Color.AntiqueWhite;
+            dataGridViewUsersAdmin.BorderStyle = BorderStyle.Fixed3D;
+            dataGridViewUsersAdmin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewUsersAdmin.Dock = DockStyle.Fill;
+            dataGridViewUsersAdmin.EditMode = DataGridViewEditMode.EditOnEnter;
+            dataGridViewUsersAdmin.GridColor = SystemColors.InfoText;
+            dataGridViewUsersAdmin.Location = new Point(3, 31);
+            dataGridViewUsersAdmin.Name = "dataGridViewUsersAdmin";
+            dataGridViewUsersAdmin.ReadOnly = true;
+            dataGridViewUsersAdmin.RowHeadersVisible = false;
+            dataGridViewUsersAdmin.RowHeadersWidth = 51;
+            dataGridViewUsersAdmin.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewUsersAdmin.Size = new Size(1161, 500);
+            dataGridViewUsersAdmin.TabIndex = 3;
             // 
             // menuStrip1
             // 
@@ -245,9 +245,9 @@
             // tabPage3
             // 
             tabPage3.BackColor = Color.AntiqueWhite;
-            tabPage3.Controls.Add(textBox2);
+            tabPage3.Controls.Add(textBoxSearchRentsAdmin);
             tabPage3.Controls.Add(label1);
-            tabPage3.Controls.Add(dataGridView);
+            tabPage3.Controls.Add(dataGridViewRentsAdmin);
             tabPage3.Controls.Add(menuStrip3);
             tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
@@ -255,12 +255,12 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Арендные чеки";
             // 
-            // textBox2
+            // textBoxSearchRentsAdmin
             // 
-            textBox2.Location = new Point(66, 41);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(175, 27);
-            textBox2.TabIndex = 6;
+            textBoxSearchRentsAdmin.Location = new Point(66, 41);
+            textBoxSearchRentsAdmin.Name = "textBoxSearchRentsAdmin";
+            textBoxSearchRentsAdmin.Size = new Size(175, 27);
+            textBoxSearchRentsAdmin.TabIndex = 6;
             // 
             // label1
             // 
@@ -271,17 +271,17 @@
             label1.TabIndex = 5;
             label1.Text = "Поиск";
             // 
-            // dataGridView
+            // dataGridViewRentsAdmin
             // 
-            dataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView.BackgroundColor = Color.Bisque;
-            dataGridView.BorderStyle = BorderStyle.Fixed3D;
-            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Location = new Point(0, 86);
-            dataGridView.Name = "dataGridView";
-            dataGridView.RowHeadersWidth = 51;
-            dataGridView.Size = new Size(1167, 448);
-            dataGridView.TabIndex = 4;
+            dataGridViewRentsAdmin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewRentsAdmin.BackgroundColor = Color.Bisque;
+            dataGridViewRentsAdmin.BorderStyle = BorderStyle.Fixed3D;
+            dataGridViewRentsAdmin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewRentsAdmin.Location = new Point(0, 86);
+            dataGridViewRentsAdmin.Name = "dataGridViewRentsAdmin";
+            dataGridViewRentsAdmin.RowHeadersWidth = 51;
+            dataGridViewRentsAdmin.Size = new Size(1167, 448);
+            dataGridViewRentsAdmin.TabIndex = 4;
             // 
             // menuStrip3
             // 
@@ -319,18 +319,18 @@
             statusStrip1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBooksAdmin).EndInit();
             menuStrip2.ResumeLayout(false);
             menuStrip2.PerformLayout();
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewUsersAdmin).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             tabControl.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewRentsAdmin).EndInit();
             menuStrip3.ResumeLayout(false);
             menuStrip3.PerformLayout();
             ResumeLayout(false);
@@ -343,14 +343,14 @@
         private TabPage tabPage2;
         private TabPage tabPage1;
         private TabControl tabControl;
-        private DataGridView dataGridViewUsers;
+        private DataGridView dataGridViewUsersAdmin;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem добавитьПользователяToolStripMenuItem;
         private ToolStripMenuItem редактироватьПользователяToolStripMenuItem;
         private ToolStripMenuItem удалитьПользователяToolStripMenuItem;
         private ToolStripMenuItem сменитьПарольToolStripMenuItem;
-        private DataGridView dataGridViewBooks;
-        private TextBox textBox1;
+        private DataGridView dataGridViewBooksAdmin;
+        private TextBox textBoxSearchBooksAdmin;
         private Label labelSearch;
         private MenuStrip menuStrip2;
         private ToolStripMenuItem создатьКнигуToolStripMenuItem;
@@ -358,9 +358,9 @@
         private ToolStripMenuItem удалитьКнигуToolStripMenuItem;
         private ToolStripMenuItem фильтрToolStripMenuItem;
         private TabPage tabPage3;
-        private TextBox textBox2;
+        private TextBox textBoxSearchRentsAdmin;
         private Label label1;
-        private DataGridView dataGridView;
+        private DataGridView dataGridViewRentsAdmin;
         private MenuStrip menuStrip3;
         private ToolStripMenuItem фильтрToolStripMenuItem1;
     }

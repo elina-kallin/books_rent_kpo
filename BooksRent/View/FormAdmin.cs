@@ -26,12 +26,12 @@ namespace AppUsersLab1
         {
             var currentAdmin = _usersStorage.GetById(CurrentUserID);
             List<User> users = _usersStorage.GetUsers();
-            dataGridViewUsers.DataSource = null;
+            dataGridViewUsersAdmin.DataSource = null;
             // Устанавливаем новый источник
-            dataGridViewUsers.DataSource = users;
+            dataGridViewUsersAdmin.DataSource = users;
 
             // Обновляем отображение
-            dataGridViewUsers.Refresh();
+            dataGridViewUsersAdmin.Refresh();
 
             helloUsernameLabel.Text = $"Привет, {currentAdmin.Name}!";
         }
@@ -108,9 +108,9 @@ namespace AppUsersLab1
 
         private User? GetUserIdFromRow()
         {
-            if (dataGridViewUsers.SelectedRows.Count == 1)
+            if (dataGridViewUsersAdmin.SelectedRows.Count == 1)
             {
-                var selectedRow = dataGridViewUsers.SelectedRows[0];
+                var selectedRow = dataGridViewUsersAdmin.SelectedRows[0];
                 var user = selectedRow.DataBoundItem as User;
                 return user;
             }

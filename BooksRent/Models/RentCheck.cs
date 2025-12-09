@@ -20,6 +20,9 @@ namespace BooksRent.Models
         [DisplayName("ФИО")]
         public string FIO { get; set; } = string.Empty;
 
+        [DisplayName("Название книги")]
+        public string BookName { get; set; } = string.Empty;
+
 
         [DisplayName("Статус аренды")]
         public StatusRent StatusRent { get; set; } = StatusRent.Свободна;

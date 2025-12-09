@@ -97,13 +97,22 @@
             // 
             // dataGridViewBooksAdmin
             // 
+            dataGridViewBooksAdmin.AllowUserToAddRows = false;
+            dataGridViewBooksAdmin.AllowUserToDeleteRows = false;
+            dataGridViewBooksAdmin.AllowUserToOrderColumns = true;
+            dataGridViewBooksAdmin.AllowUserToResizeColumns = false;
+            dataGridViewBooksAdmin.AllowUserToResizeRows = false;
             dataGridViewBooksAdmin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewBooksAdmin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewBooksAdmin.BackgroundColor = Color.Bisque;
             dataGridViewBooksAdmin.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewBooksAdmin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewBooksAdmin.Location = new Point(3, 86);
             dataGridViewBooksAdmin.Name = "dataGridViewBooksAdmin";
+            dataGridViewBooksAdmin.ReadOnly = true;
+            dataGridViewBooksAdmin.RowHeadersVisible = false;
             dataGridViewBooksAdmin.RowHeadersWidth = 51;
+            dataGridViewBooksAdmin.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewBooksAdmin.Size = new Size(1161, 445);
             dataGridViewBooksAdmin.TabIndex = 3;
             // 
@@ -273,13 +282,22 @@
             // 
             // dataGridViewRentsAdmin
             // 
+            dataGridViewRentsAdmin.AllowUserToAddRows = false;
+            dataGridViewRentsAdmin.AllowUserToDeleteRows = false;
+            dataGridViewRentsAdmin.AllowUserToOrderColumns = true;
+            dataGridViewRentsAdmin.AllowUserToResizeColumns = false;
+            dataGridViewRentsAdmin.AllowUserToResizeRows = false;
             dataGridViewRentsAdmin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewRentsAdmin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewRentsAdmin.BackgroundColor = Color.Bisque;
             dataGridViewRentsAdmin.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewRentsAdmin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewRentsAdmin.Location = new Point(0, 86);
             dataGridViewRentsAdmin.Name = "dataGridViewRentsAdmin";
+            dataGridViewRentsAdmin.ReadOnly = true;
+            dataGridViewRentsAdmin.RowHeadersVisible = false;
             dataGridViewRentsAdmin.RowHeadersWidth = 51;
+            dataGridViewRentsAdmin.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewRentsAdmin.Size = new Size(1167, 448);
             dataGridViewRentsAdmin.TabIndex = 4;
             // 

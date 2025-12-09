@@ -2,12 +2,16 @@ using AppUsersLab1.Forms;
 using AppUsersLab1.Models;
 using AppUsersLab1.Storage;
 using AppUsersLab1.View;
+using BooksRent.Models;
+using BooksRent.Storage;
 
 namespace AppUsersLab1
 {
     public partial class FormAdmin : Form
     {
         private UsersStorage _usersStorage;
+        private BookStorage _booksStorage;
+        private RentCheckStorage _rentStorage;
         private User _currentUser;
         public string CurrentUserID { get; set; }
         public FormAdmin(string currentUserID)
@@ -15,6 +19,8 @@ namespace AppUsersLab1
             InitializeComponent();
             CurrentUserID = currentUserID;
             _usersStorage = UsersStorage.GetInstance();
+            _booksStorage = new BookStorage();       
+            _rentStorage = new RentCheckStorage();
         }
 
         private void ÔÓÎ¸ÁÓ‚‡ÚÂÎËToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,6 +40,15 @@ namespace AppUsersLab1
             dataGridViewUsersAdmin.Refresh();
 
             helloUsernameLabel.Text = $"œË‚ÂÚ, {currentAdmin.Name}!";
+
+            List<Book> books = _booksStorage.GetAll();
+            dataGridViewBooksAdmin.DataSource = books;
+            dataGridViewBooksAdmin.Columns["Year"].DefaultCellStyle.Format = "dd MMMM yyyy „.";
+            dataGridViewBooksAdmin.Refresh();
+
+            List<RentCheck> checks = _rentStorage.GetAll();
+            dataGridViewRentsAdmin.DataSource = checks;
+            dataGridViewRentsAdmin.Refresh();
         }
 
         private void FormAdmin_Load(object sender, EventArgs e)

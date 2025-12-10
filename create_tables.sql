@@ -3,7 +3,8 @@ CREATE TABLE books (
     name        text NOT NULL,
     author      text NOT NULL,
     year        date NOT NULL,
-    category    int NOT NULL
+    category    int NOT NULL,
+	status_rent int not null
 );
 
 CREATE TABLE rent_checks (

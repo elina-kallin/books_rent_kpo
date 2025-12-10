@@ -4,6 +4,7 @@ using AppUsersLab1.Storage;
 using AppUsersLab1.View;
 using BooksRent.Models;
 using BooksRent.Storage;
+using BooksRent.View.Books;
 
 namespace AppUsersLab1
 {
@@ -19,7 +20,7 @@ namespace AppUsersLab1
             InitializeComponent();
             CurrentUserID = currentUserID;
             _usersStorage = UsersStorage.GetInstance();
-            _booksStorage = new BookStorage();       
+            _booksStorage = new BookStorage();
             _rentStorage = new RentCheckStorage();
         }
 
@@ -147,6 +148,51 @@ namespace AppUsersLab1
                 Form formUser = new FormUser(CurrentUserID);
                 formUser.ShowDialog();
             }
+        }
+
+        private void создать нигуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formAddBook = new AddEdit(null);
+            if (formAddBook.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
+        }
+
+        private void редактировать нигуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var id = GetBookId();
+            Form formAddBook = new AddEdit(id);
+            if (formAddBook.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
+        }
+
+        private string GetBookId()
+        {
+            if (dataGridViewBooksAdmin.SelectedRows.Count == 1)
+            {
+                var selectedRow = dataGridViewBooksAdmin.SelectedRows[0];
+                var book = selectedRow.DataBoundItem as Book;
+                return book.Id;
+            }
+            return null;
+        }
+
+        private void удалить нигуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var id = GetBookId();
+            try
+            {
+                _booksStorage.Delete(id);
+                MessageBox.Show("”далилось, все норм");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("по какой-то причине не удалось сделать");
+            }
+            LoadData();
         }
     }
 }

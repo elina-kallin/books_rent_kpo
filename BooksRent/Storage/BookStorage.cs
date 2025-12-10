@@ -14,7 +14,7 @@ namespace BooksRent.Storage
             using var conn = DBConfig.GetConnection();
             conn.Open();
 
-            string sql = "SELECT id, name, author, year, category FROM books";
+            string sql = "SELECT id, name, author, year, category, status_rent FROM books";
 
             using var cmd = new NpgsqlCommand(sql, conn);
             using var reader = cmd.ExecuteReader();
@@ -27,7 +27,8 @@ namespace BooksRent.Storage
                     Name = reader.GetString(1),
                     Author = reader.GetString(2),
                     Year = reader.GetDateTime(3),
-                    Category = (CategoryBook)reader.GetInt32(4)
+                    Category = (CategoryBook)reader.GetInt32(4),
+                    StatusRent = ((StatusRent)reader.GetInt32(5))
                 });
             }
 
@@ -39,7 +40,7 @@ namespace BooksRent.Storage
             using var conn = DBConfig.GetConnection();
             conn.Open();
 
-            string sql = @"SELECT id, name, author, year, category
+            string sql = @"SELECT id, name, author, year, category, status_rent
                            FROM books
                            WHERE id = @id";
 
@@ -57,7 +58,8 @@ namespace BooksRent.Storage
                 Name = reader.GetString(1),
                 Author = reader.GetString(2),
                 Year = reader.GetDateTime(3),
-                Category = (CategoryBook)reader.GetInt32(4)
+                Category = (CategoryBook)reader.GetInt32(4),
+                StatusRent = ((StatusRent)reader.GetInt32(5))
             };
         }
 
@@ -67,8 +69,8 @@ namespace BooksRent.Storage
             conn.Open();
 
             string sql = @"
-                INSERT INTO books(id, name, author, year, category)
-                VALUES (@id, @name, @author, @year, @category)";
+                INSERT INTO books(id, name, author, year, category, status_rent)
+                VALUES (@id, @name, @author, @year, @category, @status_rent)";
 
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@id", Guid.Parse(b.Id));
@@ -76,6 +78,7 @@ namespace BooksRent.Storage
             cmd.Parameters.AddWithValue("@author", b.Author);
             cmd.Parameters.AddWithValue("@year", b.Year);
             cmd.Parameters.AddWithValue("@category", (int)b.Category);
+            cmd.Parameters.AddWithValue("@status_rent", (int)b.StatusRent);
 
             cmd.ExecuteNonQuery();
         }
@@ -90,7 +93,8 @@ namespace BooksRent.Storage
                 SET name=@name,
                     author=@author,
                     year=@year,
-                    category=@category
+                    category=@category,
+                    status_rent=@status_rent
                 WHERE id=@id";
 
             using var cmd = new NpgsqlCommand(sql, conn);
@@ -99,6 +103,7 @@ namespace BooksRent.Storage
             cmd.Parameters.AddWithValue("@author", b.Author);
             cmd.Parameters.AddWithValue("@year", b.Year);
             cmd.Parameters.AddWithValue("@category", (int)b.Category);
+            cmd.Parameters.AddWithValue("@status_rent", (int)b.StatusRent);
 
             return cmd.ExecuteNonQuery() > 0;
         }

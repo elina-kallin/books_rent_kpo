@@ -147,18 +147,21 @@
             создатьКнигуToolStripMenuItem.Name = "создатьКнигуToolStripMenuItem";
             создатьКнигуToolStripMenuItem.Size = new Size(120, 24);
             создатьКнигуToolStripMenuItem.Text = "Создать книгу";
+            создатьКнигуToolStripMenuItem.Click += создатьКнигуToolStripMenuItem_Click;
             // 
             // редактироватьКнигуToolStripMenuItem
             // 
             редактироватьКнигуToolStripMenuItem.Name = "редактироватьКнигуToolStripMenuItem";
             редактироватьКнигуToolStripMenuItem.Size = new Size(167, 24);
             редактироватьКнигуToolStripMenuItem.Text = "Редактировать книгу";
+            редактироватьКнигуToolStripMenuItem.Click += редактироватьКнигуToolStripMenuItem_Click;
             // 
             // удалитьКнигуToolStripMenuItem
             // 
             удалитьКнигуToolStripMenuItem.Name = "удалитьКнигуToolStripMenuItem";
             удалитьКнигуToolStripMenuItem.Size = new Size(121, 24);
             удалитьКнигуToolStripMenuItem.Text = "Удалить книгу";
+            удалитьКнигуToolStripMenuItem.Click += удалитьКнигуToolStripMenuItem_Click;
             // 
             // фильтрToolStripMenuItem
             // 

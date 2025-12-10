@@ -33,20 +33,21 @@
             statusStripHelloUser = new StatusStrip();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
-            menuStrip1 = new MenuStrip();
-            фильтрToolStripMenuItem = new ToolStripMenuItem();
             dataGridViewBooksUser = new DataGridView();
             textBox1 = new TextBox();
             labelSearch = new Label();
+            menuStrip1 = new MenuStrip();
+            фильтрToolStripMenuItem = new ToolStripMenuItem();
+            арендоватьКнигуToolStripMenuItem = new ToolStripMenuItem();
+            tabPage2 = new TabPage();
             dataGridViewRentsUser = new DataGridView();
             menuStrip2 = new MenuStrip();
             toolStripMenuItem1 = new ToolStripMenuItem();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
-            menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooksUser).BeginInit();
+            menuStrip1.SuspendLayout();
+            tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRentsUser).BeginInit();
             menuStrip2.SuspendLayout();
             SuspendLayout();
@@ -91,43 +92,25 @@
             tabPage1.Text = "Книги";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            tabPage2.Controls.Add(dataGridViewRentsUser);
-            tabPage2.Controls.Add(menuStrip2);
-            tabPage2.Location = new Point(4, 29);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(792, 395);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Арендные чеки";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { фильтрToolStripMenuItem });
-            menuStrip1.Location = new Point(3, 3);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(786, 28);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // фильтрToolStripMenuItem
-            // 
-            фильтрToolStripMenuItem.Name = "фильтрToolStripMenuItem";
-            фильтрToolStripMenuItem.Size = new Size(74, 24);
-            фильтрToolStripMenuItem.Text = "Фильтр";
-            // 
             // dataGridViewBooksUser
             // 
+            dataGridViewBooksUser.AllowDrop = true;
+            dataGridViewBooksUser.AllowUserToAddRows = false;
+            dataGridViewBooksUser.AllowUserToDeleteRows = false;
+            dataGridViewBooksUser.AllowUserToOrderColumns = true;
+            dataGridViewBooksUser.AllowUserToResizeColumns = false;
+            dataGridViewBooksUser.AllowUserToResizeRows = false;
+            dataGridViewBooksUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             dataGridViewBooksUser.BackgroundColor = Color.Bisque;
             dataGridViewBooksUser.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewBooksUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewBooksUser.Dock = DockStyle.Fill;
             dataGridViewBooksUser.Location = new Point(3, 31);
             dataGridViewBooksUser.Name = "dataGridViewBooksUser";
+            dataGridViewBooksUser.ReadOnly = true;
+            dataGridViewBooksUser.RowHeadersVisible = false;
             dataGridViewBooksUser.RowHeadersWidth = 51;
+            dataGridViewBooksUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewBooksUser.Size = new Size(786, 361);
             dataGridViewBooksUser.TabIndex = 6;
             // 
@@ -147,15 +130,58 @@
             labelSearch.TabIndex = 4;
             labelSearch.Text = "Поиск";
             // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { фильтрToolStripMenuItem, арендоватьКнигуToolStripMenuItem });
+            menuStrip1.Location = new Point(3, 3);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(786, 28);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // фильтрToolStripMenuItem
+            // 
+            фильтрToolStripMenuItem.Name = "фильтрToolStripMenuItem";
+            фильтрToolStripMenuItem.Size = new Size(74, 24);
+            фильтрToolStripMenuItem.Text = "Фильтр";
+            // 
+            // арендоватьКнигуToolStripMenuItem
+            // 
+            арендоватьКнигуToolStripMenuItem.Name = "арендоватьКнигуToolStripMenuItem";
+            арендоватьКнигуToolStripMenuItem.Size = new Size(148, 24);
+            арендоватьКнигуToolStripMenuItem.Text = "Арендовать книгу";
+            арендоватьКнигуToolStripMenuItem.Click += арендоватьКнигуToolStripMenuItem_Click;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(dataGridViewRentsUser);
+            tabPage2.Controls.Add(menuStrip2);
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(792, 395);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Арендные чеки";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
             // dataGridViewRentsUser
             // 
+            dataGridViewRentsUser.AllowUserToAddRows = false;
+            dataGridViewRentsUser.AllowUserToDeleteRows = false;
+            dataGridViewRentsUser.AllowUserToOrderColumns = true;
+            dataGridViewRentsUser.AllowUserToResizeColumns = false;
+            dataGridViewRentsUser.AllowUserToResizeRows = false;
             dataGridViewRentsUser.BackgroundColor = Color.Bisque;
             dataGridViewRentsUser.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewRentsUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewRentsUser.Dock = DockStyle.Fill;
             dataGridViewRentsUser.Location = new Point(3, 31);
             dataGridViewRentsUser.Name = "dataGridViewRentsUser";
+            dataGridViewRentsUser.ReadOnly = true;
+            dataGridViewRentsUser.RowHeadersVisible = false;
             dataGridViewRentsUser.RowHeadersWidth = 51;
+            dataGridViewRentsUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewRentsUser.Size = new Size(786, 361);
             dataGridViewRentsUser.TabIndex = 8;
             // 
@@ -189,11 +215,11 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
-            tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBooksUser).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewBooksUser).EndInit();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRentsUser).EndInit();
             menuStrip2.ResumeLayout(false);
             menuStrip2.PerformLayout();
@@ -216,5 +242,6 @@
         private DataGridView dataGridViewRentsUser;
         private MenuStrip menuStrip2;
         private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem арендоватьКнигуToolStripMenuItem;
     }
 }

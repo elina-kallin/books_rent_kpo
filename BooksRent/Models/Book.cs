@@ -20,5 +20,8 @@ namespace BooksRent.Models
 
         [DisplayName("Категория")]
         public CategoryBook Category { get; set; } = CategoryBook.Физика;
+
+        [DisplayName("Статус аренды")]
+        public StatusRent StatusRent { get; set; } = StatusRent.Свободна;
     }
 }

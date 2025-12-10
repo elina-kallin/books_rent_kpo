@@ -1,5 +1,8 @@
 ﻿using AppUsersLab1.Storage;
 using AppUsersLab1.View;
+using BooksRent.Models;
+using BooksRent.Storage;
+using BooksRent.View.Books;
 
 namespace AppUsersLab1.Forms
 {
@@ -7,12 +10,16 @@ namespace AppUsersLab1.Forms
     {
         private string CurrentUserID;
         private UsersStorage _usersStorage;
+        private BookStorage _bookStorage;
+        private RentCheckStorage _rentCheckStorage;
         public FormUser(string currentUserID)
         {
             InitializeComponent();
             CurrentUserID = currentUserID;
             _usersStorage = UsersStorage.GetInstance();
             statusStripHelloUser.Text = $"Привет, {_usersStorage.GetById(CurrentUserID)}!";
+            _bookStorage = new BookStorage();
+            _rentCheckStorage = new RentCheckStorage();
         }
 
         private void сменитьПарольToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,6 +43,41 @@ namespace AppUsersLab1.Forms
         {
             var currentUser = _usersStorage.GetById(CurrentUserID);
             statusStripHelloUser.Text = $"Здравствуй, {currentUser.Name}!";
+
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            List<Book> books = _bookStorage.GetAll();
+            dataGridViewBooksUser.DataSource = books;
+            dataGridViewBooksUser.Refresh();
+
+            List<RentCheck> checks = _rentCheckStorage.GetAll();
+            dataGridViewRentsUser.DataSource = checks;
+            dataGridViewRentsUser.Refresh();
+        }
+
+        private string? GetIdBook()
+        {
+            if (dataGridViewBooksUser.SelectedRows.Count == 1)
+            {
+                var selectedRow = dataGridViewBooksUser.SelectedRows[0];
+                var book = selectedRow.DataBoundItem as Book;
+                
+                return book.Id;
+            }
+            return null;
+        }
+
+        private void арендоватьКнигуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var bookId = GetIdBook();
+            Form rent = new AddEditRent(bookId);
+            if(rent.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
         }
     }
 }

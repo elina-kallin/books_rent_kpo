@@ -38,18 +38,17 @@
             labelSearch = new Label();
             menuStrip1 = new MenuStrip();
             фильтрToolStripMenuItem = new ToolStripMenuItem();
+            очиститьФильтрToolStripMenuItem = new ToolStripMenuItem();
             арендоватьКнигуToolStripMenuItem = new ToolStripMenuItem();
             tabPage2 = new TabPage();
             dataGridViewRentsUser = new DataGridView();
             menuStrip2 = new MenuStrip();
-            toolStripMenuItem1 = new ToolStripMenuItem();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooksUser).BeginInit();
             menuStrip1.SuspendLayout();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRentsUser).BeginInit();
-            menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
             // contextMenuStrip1
@@ -94,12 +93,9 @@
             // 
             // dataGridViewBooksUser
             // 
-            dataGridViewBooksUser.AllowDrop = true;
             dataGridViewBooksUser.AllowUserToAddRows = false;
             dataGridViewBooksUser.AllowUserToDeleteRows = false;
-            dataGridViewBooksUser.AllowUserToOrderColumns = true;
             dataGridViewBooksUser.AllowUserToResizeColumns = false;
-            dataGridViewBooksUser.AllowUserToResizeRows = false;
             dataGridViewBooksUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             dataGridViewBooksUser.BackgroundColor = Color.Bisque;
             dataGridViewBooksUser.BorderStyle = BorderStyle.Fixed3D;
@@ -133,7 +129,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { фильтрToolStripMenuItem, арендоватьКнигуToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { фильтрToolStripMenuItem, очиститьФильтрToolStripMenuItem, арендоватьКнигуToolStripMenuItem });
             menuStrip1.Location = new Point(3, 3);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(786, 28);
@@ -145,6 +141,14 @@
             фильтрToolStripMenuItem.Name = "фильтрToolStripMenuItem";
             фильтрToolStripMenuItem.Size = new Size(74, 24);
             фильтрToolStripMenuItem.Text = "Фильтр";
+            фильтрToolStripMenuItem.Click += фильтрToolStripMenuItem_Click;
+            // 
+            // очиститьФильтрToolStripMenuItem
+            // 
+            очиститьФильтрToolStripMenuItem.Name = "очиститьФильтрToolStripMenuItem";
+            очиститьФильтрToolStripMenuItem.Size = new Size(141, 24);
+            очиститьФильтрToolStripMenuItem.Text = "Очистить фильтр";
+            очиститьФильтрToolStripMenuItem.Click += очиститьФильтрToolStripMenuItem_Click;
             // 
             // арендоватьКнигуToolStripMenuItem
             // 
@@ -176,30 +180,23 @@
             dataGridViewRentsUser.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewRentsUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewRentsUser.Dock = DockStyle.Fill;
-            dataGridViewRentsUser.Location = new Point(3, 31);
+            dataGridViewRentsUser.Location = new Point(3, 27);
             dataGridViewRentsUser.Name = "dataGridViewRentsUser";
             dataGridViewRentsUser.ReadOnly = true;
             dataGridViewRentsUser.RowHeadersVisible = false;
             dataGridViewRentsUser.RowHeadersWidth = 51;
             dataGridViewRentsUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewRentsUser.Size = new Size(786, 361);
+            dataGridViewRentsUser.Size = new Size(786, 365);
             dataGridViewRentsUser.TabIndex = 8;
             // 
             // menuStrip2
             // 
             menuStrip2.ImageScalingSize = new Size(20, 20);
-            menuStrip2.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
             menuStrip2.Location = new Point(3, 3);
             menuStrip2.Name = "menuStrip2";
-            menuStrip2.Size = new Size(786, 28);
+            menuStrip2.Size = new Size(786, 24);
             menuStrip2.TabIndex = 7;
             menuStrip2.Text = "menuStrip2";
-            // 
-            // toolStripMenuItem1
-            // 
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(74, 24);
-            toolStripMenuItem1.Text = "Фильтр";
             // 
             // FormUser
             // 
@@ -221,8 +218,6 @@
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRentsUser).EndInit();
-            menuStrip2.ResumeLayout(false);
-            menuStrip2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -241,7 +236,7 @@
         private Label labelSearch;
         private DataGridView dataGridViewRentsUser;
         private MenuStrip menuStrip2;
-        private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem арендоватьКнигуToolStripMenuItem;
+        private ToolStripMenuItem очиститьФильтрToolStripMenuItem;
     }
 }

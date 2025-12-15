@@ -3,7 +3,10 @@ using AppUsersLab1.Models;
 using AppUsersLab1.Storage;
 using AppUsersLab1.View;
 using BooksRent.Models;
+using BooksRent.Models.enums;
+using BooksRent.Services;
 using BooksRent.Storage;
+using BooksRent.View;
 using BooksRent.View.Books;
 
 namespace AppUsersLab1
@@ -14,6 +17,7 @@ namespace AppUsersLab1
         private BookStorage _booksStorage;
         private RentCheckStorage _rentStorage;
         private User _currentUser;
+        private BookFilterParams _bookFilter;
         public string CurrentUserID { get; set; }
         public FormAdmin(string currentUserID)
         {
@@ -22,6 +26,10 @@ namespace AppUsersLab1
             _usersStorage = UsersStorage.GetInstance();
             _booksStorage = new BookStorage();
             _rentStorage = new RentCheckStorage();
+            _bookFilter = new BookFilterParams();
+
+            выдать нигуToolStripMenuItem.Enabled = false;
+            прин€ть нигуToolStripMenuItem.Enabled = false;
         }
 
         private void пользователиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,7 +50,10 @@ namespace AppUsersLab1
 
             helloUsernameLabel.Text = $"ѕривет, {currentAdmin.Name}!";
 
-            List<Book> books = _booksStorage.GetAll();
+            List<Book> books = _booksStorage.GetFilteredBooks(
+                _bookFilter.Author,
+                _bookFilter.Category);
+
             dataGridViewBooksAdmin.DataSource = books;
             dataGridViewBooksAdmin.Columns["Year"].DefaultCellStyle.Format = "dd MMMM yyyy г.";
             dataGridViewBooksAdmin.Refresh();
@@ -180,6 +191,18 @@ namespace AppUsersLab1
             return null;
         }
 
+
+        private string GetCheckId()
+        {
+            if (dataGridViewRentsAdmin.SelectedRows.Count == 1)
+            {
+                var selectedRow = dataGridViewRentsAdmin.SelectedRows[0];
+                var check = selectedRow.DataBoundItem as RentCheck;
+                return check.Id;
+            }
+            return null;
+        }
+
         private void удалить нигуToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var id = GetBookId();
@@ -192,6 +215,108 @@ namespace AppUsersLab1
             {
                 MessageBox.Show("по какой-то причине не удалось сделать");
             }
+            LoadData();
+        }
+
+        private void выдать нигуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var checkId = GetCheckId();
+            var check = _rentStorage.GetById(checkId);
+
+            var book = _booksStorage.GetById(check.BookId);
+
+            if (book != null)
+            {
+                book.StatusRent = StatusRent.¬ыдана;
+                _booksStorage.Update(book);
+
+                var newBook = _booksStorage.GetById(check.BookId);
+
+                check.StatusRent = newBook.StatusRent;
+                _rentStorage.Update(check);
+            }
+            else
+            {
+                MessageBox.Show(" ниги почему-то нет такой");
+            }
+
+            MessageBox.Show(" нига выдана");
+            LoadData();
+
+        }
+
+        private void прин€ть нигуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var checkId = GetCheckId();
+            var check = _rentStorage.GetById(checkId);
+
+            var book = _booksStorage.GetById(check.BookId);
+
+            if (book != null)
+            {
+                book.StatusRent = StatusRent.—вободна;
+                _booksStorage.Update(book);
+
+                var newBook = _booksStorage.GetById(check.BookId);
+
+                check.StatusRent = newBook.StatusRent;
+                _rentStorage.Update(check);
+            }
+            else
+            {
+                MessageBox.Show(" ниги почему-то нет такой");
+            }
+
+            MessageBox.Show(" нига вернулась в библиотеку!");
+            LoadData();
+        }
+
+        private void dataGridViewRentsAdmin_SelectionChanged(object sender, EventArgs e)
+        {
+            // —брасываем состо€ние меню
+            выдать нигуToolStripMenuItem.Enabled = false;
+            прин€ть нигуToolStripMenuItem.Enabled = false;
+
+            if (dataGridViewRentsAdmin.SelectedRows.Count == 1)
+            {
+                var selectedRow = dataGridViewRentsAdmin.SelectedRows[0];
+                var check = selectedRow.DataBoundItem as RentCheck;
+
+                if (check != null)
+                {
+                    // ѕолучаем книгу по BookId из чека
+                    var book = _booksStorage.GetById(check.BookId);
+
+                    if (book != null)
+                    {
+                        if (book.StatusRent == StatusRent.јрендована)
+                        {
+                            выдать нигуToolStripMenuItem.Enabled = true;
+                        }
+                        else if (book.StatusRent == StatusRent.¬ыдана)
+                        {
+                            прин€ть нигуToolStripMenuItem.Enabled = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void фильтрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formFilter = new FormBookFilter();
+            if (formFilter.ShowDialog() == DialogResult.OK)
+            {
+                var filterForm = (FormBookFilter)formFilter;
+                _bookFilter = filterForm.FilterParams;
+                LoadData();
+            }
+        }
+
+        private void сбросить‘ильтрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _bookFilter.Author = "";
+            _bookFilter.Category = "";
             LoadData();
         }
     }

@@ -53,6 +53,9 @@
             dataGridViewRentsAdmin = new DataGridView();
             menuStrip3 = new MenuStrip();
             фильтрToolStripMenuItem1 = new ToolStripMenuItem();
+            выдатьКнигуToolStripMenuItem = new ToolStripMenuItem();
+            принятьКнигуToolStripMenuItem = new ToolStripMenuItem();
+            сброситьФильтрToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1.SuspendLayout();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooksAdmin).BeginInit();
@@ -135,7 +138,7 @@
             // menuStrip2
             // 
             menuStrip2.ImageScalingSize = new Size(20, 20);
-            menuStrip2.Items.AddRange(new ToolStripItem[] { создатьКнигуToolStripMenuItem, редактироватьКнигуToolStripMenuItem, удалитьКнигуToolStripMenuItem, фильтрToolStripMenuItem });
+            menuStrip2.Items.AddRange(new ToolStripItem[] { создатьКнигуToolStripMenuItem, редактироватьКнигуToolStripMenuItem, удалитьКнигуToolStripMenuItem, фильтрToolStripMenuItem, сброситьФильтрToolStripMenuItem });
             menuStrip2.Location = new Point(3, 3);
             menuStrip2.Name = "menuStrip2";
             menuStrip2.Size = new Size(1161, 28);
@@ -168,6 +171,7 @@
             фильтрToolStripMenuItem.Name = "фильтрToolStripMenuItem";
             фильтрToolStripMenuItem.Size = new Size(74, 24);
             фильтрToolStripMenuItem.Text = "Фильтр";
+            фильтрToolStripMenuItem.Click += фильтрToolStripMenuItem_Click;
             // 
             // tabPage1
             // 
@@ -303,11 +307,12 @@
             dataGridViewRentsAdmin.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewRentsAdmin.Size = new Size(1167, 448);
             dataGridViewRentsAdmin.TabIndex = 4;
+            dataGridViewRentsAdmin.SelectionChanged += dataGridViewRentsAdmin_SelectionChanged;
             // 
             // menuStrip3
             // 
             menuStrip3.ImageScalingSize = new Size(20, 20);
-            menuStrip3.Items.AddRange(new ToolStripItem[] { фильтрToolStripMenuItem1 });
+            menuStrip3.Items.AddRange(new ToolStripItem[] { фильтрToolStripMenuItem1, выдатьКнигуToolStripMenuItem, принятьКнигуToolStripMenuItem });
             menuStrip3.Location = new Point(0, 0);
             menuStrip3.Name = "menuStrip3";
             menuStrip3.Size = new Size(1167, 28);
@@ -319,6 +324,27 @@
             фильтрToolStripMenuItem1.Name = "фильтрToolStripMenuItem1";
             фильтрToolStripMenuItem1.Size = new Size(74, 24);
             фильтрToolStripMenuItem1.Text = "Фильтр";
+            // 
+            // выдатьКнигуToolStripMenuItem
+            // 
+            выдатьКнигуToolStripMenuItem.Name = "выдатьКнигуToolStripMenuItem";
+            выдатьКнигуToolStripMenuItem.Size = new Size(115, 24);
+            выдатьКнигуToolStripMenuItem.Text = "Выдать книгу";
+            выдатьКнигуToolStripMenuItem.Click += выдатьКнигуToolStripMenuItem_Click;
+            // 
+            // принятьКнигуToolStripMenuItem
+            // 
+            принятьКнигуToolStripMenuItem.Name = "принятьКнигуToolStripMenuItem";
+            принятьКнигуToolStripMenuItem.Size = new Size(125, 24);
+            принятьКнигуToolStripMenuItem.Text = "Принять книгу";
+            принятьКнигуToolStripMenuItem.Click += принятьКнигуToolStripMenuItem_Click;
+            // 
+            // сброситьФильтрToolStripMenuItem
+            // 
+            сброситьФильтрToolStripMenuItem.Name = "сброситьФильтрToolStripMenuItem";
+            сброситьФильтрToolStripMenuItem.Size = new Size(143, 24);
+            сброситьФильтрToolStripMenuItem.Text = "Сбросить фильтр";
+            сброситьФильтрToolStripMenuItem.Click += сброситьФильтрToolStripMenuItem_Click;
             // 
             // FormAdmin
             // 
@@ -384,5 +410,8 @@
         private DataGridView dataGridViewRentsAdmin;
         private MenuStrip menuStrip3;
         private ToolStripMenuItem фильтрToolStripMenuItem1;
+        private ToolStripMenuItem выдатьКнигуToolStripMenuItem;
+        private ToolStripMenuItem принятьКнигуToolStripMenuItem;
+        private ToolStripMenuItem сброситьФильтрToolStripMenuItem;
     }
 }

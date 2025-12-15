@@ -30,6 +30,7 @@
         {
             label1 = new Label();
             textBoxBookName = new TextBox();
+            buttonRent = new Button();
             SuspendLayout();
             // 
             // label1
@@ -48,11 +49,22 @@
             textBoxBookName.Size = new Size(469, 27);
             textBoxBookName.TabIndex = 1;
             // 
+            // buttonRent
+            // 
+            buttonRent.Location = new Point(450, 49);
+            buttonRent.Name = "buttonRent";
+            buttonRent.Size = new Size(124, 29);
+            buttonRent.TabIndex = 2;
+            buttonRent.Text = "Арендовать";
+            buttonRent.UseVisualStyleBackColor = true;
+            buttonRent.Click += buttonRent_Click;
+            // 
             // AddEditRent
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(587, 495);
+            ClientSize = new Size(587, 91);
+            Controls.Add(buttonRent);
             Controls.Add(textBoxBookName);
             Controls.Add(label1);
             Name = "AddEditRent";
@@ -66,5 +78,6 @@
 
         private Label label1;
         private TextBox textBoxBookName;
+        private Button buttonRent;
     }
 }

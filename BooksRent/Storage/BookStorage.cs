@@ -120,5 +120,34 @@ namespace BooksRent.Storage
 
             return cmd.ExecuteNonQuery() > 0;
         }
+
+
+        public List<Book> GetFilteredBooks(string author = "", string category = "")
+        {
+            var allBooks = GetAll();
+
+            if (string.IsNullOrEmpty(author) && string.IsNullOrEmpty(category))
+                return allBooks;
+
+            var filteredBooks = allBooks;
+
+            if (!string.IsNullOrEmpty(author))
+            {
+                filteredBooks = filteredBooks.Where(b =>
+                    b.Author != null &&
+                    b.Author.Contains(author, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
+
+            if (!string.IsNullOrEmpty(category))
+            {
+                if (Enum.TryParse<CategoryBook>(category, out var categoryEnum))
+                {
+                    filteredBooks = filteredBooks.Where(b => b.Category == categoryEnum).ToList();
+                }
+            }
+
+            return filteredBooks;
+        }
     }
 }

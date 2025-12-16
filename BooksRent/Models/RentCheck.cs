@@ -25,7 +25,7 @@ namespace BooksRent.Models
 
 
         [DisplayName("Статус аренды")]
-        public StatusRent StatusRent { get; set; } = StatusRent.Свободна;
+        public StatusRent StatusRent { get; set; } = StatusRent.Арендована;
 
 
     }

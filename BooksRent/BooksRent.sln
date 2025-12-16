@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksRent", "BooksRent.csproj", "{AC93DDF0-E474-49B6-974C-603850DE0C1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\UnitTests\Tests.csproj", "{65F0A6B0-769A-40DD-85D5-5F7E03560EAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AC93DDF0-E474-49B6-974C-603850DE0C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC93DDF0-E474-49B6-974C-603850DE0C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC93DDF0-E474-49B6-974C-603850DE0C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65F0A6B0-769A-40DD-85D5-5F7E03560EAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F0A6B0-769A-40DD-85D5-5F7E03560EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F0A6B0-769A-40DD-85D5-5F7E03560EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F0A6B0-769A-40DD-85D5-5F7E03560EAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

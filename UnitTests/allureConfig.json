@@ -1,0 +1,28 @@
+{
+  "allure": {
+    "directory": "allure-results",
+    "links": []
+  },
+  "specflow": {
+    "stepArguments": {
+      "convertToParameters": true,
+      "paramNameRegex": "",
+      "paramValueRegex": ""
+    },
+    "grouping": {
+      "suites": {
+        "parentSuite": "^ParentSuite:.*",
+        "suite": "^Suite:.*",
+        "subSuite": "^SubSuite:.*"
+      },
+      "behaviors": {
+        "epic": "^Epic:.*",
+        "story": "^Story:.*"
+      }
+    },
+    "labels": {
+      "owner": "^Author:.*",
+      "severity": "^Severity:.*"
+    }
+  }
+}
